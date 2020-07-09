@@ -1,13 +1,13 @@
 <template>
-  <el-container style="height: 100vh; border: 1px solid #eee">
+  <el-container style="height: 100vh; border: 1px solid #eee" >
     <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
-      <el-menu router :default-openeds="['1', '3']">
+      <el-menu router :default-openeds="['1']" :default-active="$route.path">
         <el-submenu index="1">
           <template slot="title">
             <i class="el-icon-menu"></i>内容管理
           </template>
           <el-menu-item-group>
-            <el-menu-item index="/article/index">文章列表</el-menu-item>
+            <el-menu-item index="/article/index" >文章列表</el-menu-item>
             <el-menu-item index="/article/create">新建文章</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
@@ -32,7 +32,25 @@
     </el-container>
   </el-container>
 </template>
-
+<script>
+export default {
+  watch:{
+    $route:{
+      handler: function(to, from){
+      console.log(to.path);
+      console.log(from.path);
+    },
+   //立即先去执行handler方法
+    immediate:true
+    }
+  },
+  methods: {
+    gethash(){
+      console.log(this.$route)
+    }
+  },
+};
+</script>
 <style>
 body,
 html {
