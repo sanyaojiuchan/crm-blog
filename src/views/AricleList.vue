@@ -1,9 +1,9 @@
 <template>
-  <el-table :data="articles" max-height="600px" border>
-    <el-table-column type="selection" width="55"></el-table-column>
-    <el-table-column prop="title" label="标题" width="140"></el-table-column>
+  <el-table :data="articles" height="100%" border  :header-cell-style="{background:'rgba(0, 0, 0,.15)'}">
+    <el-table-column type="selection" width="55" align	='center'></el-table-column>
+    <el-table-column prop="title" label="标题" width="140" align	='center'></el-table-column>
     <el-table-column prop="body" label="文章内容" width="auto"></el-table-column>
-    <el-table-column fixed="right" label="操作" width="200">
+    <el-table-column fixed="right" label="操作" width="200" align	='center'>
       <template slot-scope="scope">
         <el-button @click="editArticle(scope.row._id)" type="primary" size="small">编辑</el-button>
         <el-button type="danger" size="small" @click="removeArticle(scope.row._id)">删除</el-button>
@@ -31,7 +31,6 @@ export default {
     getData() {
       this.$http.get("articles").then(res => {
         this.articles = res.data;
-        
       });
     },
     editArticle(id) {
@@ -62,15 +61,10 @@ export default {
         this.getData();
       });
     }
-  },
-  watch:{
-    $route(to,from){
-      console.log(from.path);//从哪来
-      console.log(to.path);//到哪去
-    }
-}
+  }
 };
 </script>
 
-<style scoped>
+<style >
+
 </style>

@@ -49,9 +49,7 @@ export default {
         this.$message({
           message: '恭喜你，这是一条成功消息',
           type: 'success',
-          onClose:()=>{
-            this.$router.push('/article/index')
-          }
+          
         });
          
       })
@@ -60,14 +58,6 @@ export default {
      
     }
   },
-  // beforeRouteLeave (to, from, next) {
-  //     // 导航离开该组件的对应路由时调用
-  //     // 可以访问组件实例 `this`
-  //     console.log(to.path+'---'+from.path)
-  //     next()
-  //   },
-  //   props:{
-  //     isActive:String
-  //   }
+ 
 };
 </script>
